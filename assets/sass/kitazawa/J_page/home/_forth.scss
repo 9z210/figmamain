@@ -1,186 +1,400 @@
-@use '../../../functions' as *;
-@use '../../J_functions' as *;
+@use "../../../functions" as *;
+@use "../../J_functions" as *;
 
 /* -----------------------
   SERVICE
 ----------------------- */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// これはreset.scssにすでに記載してあるので書かなくて大丈夫です！
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
 
-body {
+// bodyに対して何かを指定してしまうと、他のページにもCSSが適用されてしまうので、bodyには指定しないようにします。
+// 自分が書いたものにのみCSSが反映されるように
+/**
+
+    mainタグにかならず<main class="service"></div>などクラス名をつけ、
+    sassでhtmlタグに直接スタイルをつける時は
+    .service{
+      li{
+
+      }
+    }
+
+**/
+
+//このルールがあるので以下のようにします。
+
+// body {
+//   background: #f2f2f2;
+// }
+
+.service {
   background: #f2f2f2;
-}
 
-.main1-inner {
-  width: 100%;
-}
+  // .main1-inner {
+  //   width: 100%;
+  // }
 
-/* パンくず */
-.breadcrumb {
-  padding: 20px 40px 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  position: relative;
-  z-index: 10;
+  /* ヒーロー */
+  .service-hero {
+    position: relative;
+    // margin-top: s(-40) pmin(-60);
+    // padding: pmin(20);
 
-  a,
-  span {
-    color: #3d3d3d;
-    font-weight: 500;
-    text-decoration: none;
-  }
+    @include pc {
+      margin-top: pmin(-40) pmin(-60);
+    }
 
-  &-home {
-    border-bottom: 1px solid #3d3d3d;
-  }
-}
+    @include sp {
+      margin-top: s(-40) s(-60);
+    }
 
-/* ヒーロー */
-.service-hero {
-  position: relative;
-  margin-top: s(-40px) pmin(-60px);
+    // &-bg {
+    //   width: calc(100% - s(40));
+    //   margin-left: auto;
 
-  &-bg {
-    width: calc(100% - s(40px) pmin(214px));
-    margin-left: auto;
+    //   img {
+    //     width: 100%;
+    //     display: block;
+    //   }
+    // }
 
-    img {
-      width: 100%;
-      display: block;
+    // SERVICE-1.png の背景画像をここで設定します
+    .survice-bg {
+      @include imgCover("SERVICE-1.png");
+      position: absolute; //浮かせて配置
+      top: 0;
+      right: 0;
+      z-index: 0; //他の要素の後ろに配置
+
+      @include pc {
+        width: pmin(1269);
+        height: pmin(600);
+      }
+
+      @include sp {
+        width: 100%;
+        height: s(260);
+      }
+    }
+
+    /* パンくず */
+    .breadcrumb {
+      // padding: 20px 40px 0;
+      display: flex;
+      align-items: center;
+      // gap: 12px;
+      // font-size: 14px;
+      position: relative;
+      z-index: 10;
+
+      @include pc {
+        padding: pmin(20) pmin(40) 0;
+        gap: pmin(12);
+        font-size: pmin(14);
+      }
+
+      @include sp {
+        padding: s(18) s(20) 0;
+        gap: s(12);
+        font-size: s(12);
+      }
+
+      a,
+      span {
+        color: #3d3d3d;
+        font-weight: 500;
+        // text-decoration: none;  すでにreset.scssで消してある
+      }
+
+      &-home {
+
+        // border-bottom: 1px solid #3d3d3d;
+        @include pc {
+          border-bottom: pmin(1) solid #3d3d3d;
+        }
+
+        @include sp {
+          border-bottom: s(1) solid #3d3d3d;
+        }
+      }
+    }
+
+    &-title {
+      // position: absolute;
+      // left: s(20) pmin(85);
+      // top: 50%;
+      // transform: translateY(-50%);
+      display: flex;
+      // align-items: center;
+      align-items: baseline; //フレックスボックス内のアイテムを下揃えに配置
+      // gap: s(16) pmin(40);
+      z-index: 2;
+      position: relative; //z-indexを聞かせるために追加
+
+      // 配置用
+      @include pc {
+        margin-top: pmin(160);
+        padding: 0 pmin(80);
+        gap: pmin(30);
+      }
+
+      @include sp {
+        flex-direction: column; //スマホレイアウトでは縦並び
+        align-items: center; //フレックスボックス内のアイテムを左右中央に配置
+        margin-top: s(50);
+      }
+
+      h1 {
+        //READ ME 124行目付近 フォントついて参照
+        /** 
+
+        Bebasというフォントも使われているようなので、そちらを使う場合は
+        @include Bebas;
+        を指定してください
+
+        **/
+        @include Bebas;
+        // font-family: "Bebas Neue", sans-serif;
+        // font-weight: 400;
+        // font-size: s(48) pmin(100);
+        line-height: 1.1;
+
+        // 文字間もう少し開けたい
+        letter-spacing: 0.08em;
+        // letter-spacing: 0.06em;
+        color: #7b7b7b;
+
+        @include pc {
+          font-size: pmin(100);
+        }
+
+        @include sp {
+          font-size: s(60);
+        }
+      }
+
+      p {
+        // font-size: s(16) pmin(24);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+
+        // メインの文字色は全体に対して設定してあるので不要
+        // color: #222;
+        // margin-top: s(8) pmin(36);
+
+        @include pc {
+          font-size: pmin(24);
+        }
+
+        @include sp {
+          font-size: s(16);
+        }
+      }
     }
   }
 
-  &-title {
-    position: absolute;
-    left: s(20px) pmin(85px);
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    gap: s(16px) pmin(40px);
-    z-index: 2;
-
-    h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-weight: 400;
-      font-size: s(48px) pmin(100px);
-      line-height: 1.1;
-      letter-spacing: 0.06em;
-      color: #7b7b7b;
-    }
-
-    p {
-      font-size: s(16px) pmin(24px);
-      font-weight: 700;
-      color: #222;
-      margin-top: s(8px) pmin(36px);
-    }
-  }
-}
-
-/* 下の画像 */
-.service-photo {
-  max-width: 1800px;
-  width: 100%;
-  margin: s(-120px) pmin(-330px) auto 0;
-  position: relative;
-  z-index: 3;
-
-  img {
+  /* 下の画像 */
+  .service-photo {
+    // max-width: 1800px;
+    // height: pmin(468);
     width: 100%;
-    display: block;
-  }
-}
+    // margin: s(-120) pmin(-330) auto 0;
+    position: relative;
+    z-index: 3;
 
-/* テキストエリア */
-.service-intro {
-  padding: s(60px) pmin(100px) 0 s(80px) pmin(120px);
-
-  &-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 s(20px) pmin(40px);
-    display: flex;
-    flex-direction: s(column) pmin(row);
-    gap: s(24px) pmin(39px);
-  }
-
-  &-title {
-    width: s(100%) pmin(38%);
-
-    h2 {
-      font-size: s(24px) pmin(36px);
-      font-weight: 700;
-      line-height: 1.8;
+    @include pc {
+      padding: 0 pmin(40);
+      height: pmin(468);
+      margin-top: pmin(20);
     }
-  }
 
-  &-text {
-    width: s(100%) pmin(60%);
-
-    p {
-      font-size: s(14px) pmin(20px);
-      line-height: 2.3;
+    @include sp {
+      padding: 0 s(20);
+      height: s(180);
+      margin-top: s(40);
     }
-  }
-}
-
-/* 事業セクション */
-.service-works {
-  position: relative;
-  margin-top: 120px;
-  padding: 120px 0 0;
-  overflow: hidden;
-
-  &-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
 
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
-      opacity: 0.18;
+      object-fit: cover; //画像が伸びないように追加
     }
   }
 
-  &-inner {
+  /* テキストエリア */
+  .service-intro {
+    // padding: s(60) pmin(100) 0 s(80) pmin(120);
+
+    @include pc {
+      padding: pmin(120) 0 pmin(60);
+    }
+
+    @include sp {
+      padding: s(60) s(20) 0;
+    }
+
+    &-inner {
+      // max-width: 1100px;
+      margin: 0 auto;
+      // padding: 0 s(20) pmin(40);
+      display: flex;
+      // gap: s(24) pmin(39);
+
+      @include pc {
+        max-width: pmin(1000);
+        justify-content: space-between;
+      }
+
+      @include sp {
+        flex-direction: column; //スマホでは縦並び
+        gap: s(24);
+      }
+    }
+
+    &-title {
+      // width: s(100%) pmin(38%);
+
+      h2 {
+        // font-size: s(24) pmin(36);
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.08em;
+
+        @include pc {
+          font-size: pmin(36);
+        }
+
+        @include sp {
+          text-align: center;
+          font-size: s(15);
+        }
+      }
+    }
+
+    &-text {
+      // width: s(100%) pmin(60%);
+
+      p {
+        // font-size: s(14) pmin(20);
+        line-height: 2.3;
+        letter-spacing: 0.08em;
+
+        @include pc {
+          font-size: pmin(20);
+        }
+
+        @include sp {
+          font-size: s(14);
+        }
+      }
+    }
+  }
+
+  /* 事業セクション */
+  .service-works {
     position: relative;
-    z-index: 2;
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 90px 40px 100px 40px;
+    margin-bottom: 120px;
+    // margin-top: 120px;
+    // padding: 120px 0 0;
+    // overflow: hidden;
+
+    @include imgCover("SERVICE-3.png");
+
+    @include pc {
+      padding: pmin(120) 0 pmin(100);
+    }
+
+    @include sp {
+      background-position: top;
+      padding: s(100) s(20) s(80);
+    }
+
+    // &-bg {
+    //   position: absolute;
+    //   inset: 0;
+    //   z-index: 1;
+
+    //   img {
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: cover;
+    //     display: block;
+    //     opacity: 0.18;
+    //   }
+    // }
+
+    &-inner {
+      position: relative;
+      z-index: 2;
+      // max-width: 980px;
+      margin: 0 auto;
+      // padding: 90px 40px 100px 40px;
+
+      @include pc {
+        max-width: pmin(1000);
+      }
+    }
+
+    // &-label {
+    //   font-size: 24px;
+    //   font-weight: 700;
+    //   line-height: 1.5;
+    //   color: #ef3b2d;
+    //   margin-bottom: 20px;
+    // }
+
+    // &-title {
+    //   font-size: 60px;
+    //   font-weight: 700;
+    //   line-height: 1.3;
+    //   color: #222;
+    //   margin-bottom: 52px;
+    // }
+
+    &-text {
+      // max-width: 860px;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 2.2;
+      letter-spacing: 0.07em;
+      color: #222;
+
+      @include pc {
+        font-size: pmin(18);
+        margin-top: pmin(60);
+      }
+
+      @include sp {
+        font-size: s(14);
+        margin-top: s(40);
+      }
+    }
   }
 
-  &-label {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.5;
-    color: #ef3b2d;
-    margin-bottom: 20px;
+  .service-list {
+    @include pc {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: pmin(1432);
+      margin: 0 auto;
+      padding-bottom: pmin(120);
+      gap: pmin(40);
+    }
+
+    @include sp {
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: s(337);
+      margin: 0 auto ;
+      padding-bottom: s(80);
+      gap: s(40);
+    }
   }
 
-  &-title {
-    font-size: 60px;
-    font-weight: 700;
-    line-height: 1.3;
-    color: #222;
-    margin-bottom: 52px;
-  }
-
-  &-text {
-    max-width: 860px;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 2.2;
-    color: #222;
-  }
 }

@@ -280,157 +280,479 @@ h6 {
 /* -----------------------
   SERVICE
 ----------------------- */
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
+/**
 
-body {
+    mainタグにかならず<main class="service"></div>などクラス名をつけ、
+    sassでhtmlタグに直接スタイルをつける時は
+    .service{
+      li{
+
+      }
+    }
+
+**/
+.service {
   background: #f2f2f2;
+  /* ヒーロー */
 }
-
-.main1-inner {
-  width: 100%;
+.service .service-hero {
+  position: relative;
 }
-
-/* パンくず */
-.breadcrumb {
-  padding: 20px 40px 0;
+@media screen and (min-width: 768px) {
+  .service .service-hero {
+    margin-top: min(-2.6455026455vw, -40px) min(-3.9682539683vw, -60px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-hero {
+    margin-top: -10.6666666667vw -16vw;
+  }
+}
+.service .service-hero .survice-bg {
+  background-image: url("../img/SERVICE-1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+@media screen and (min-width: 768px) {
+  .service .service-hero .survice-bg {
+    width: min(83.9285714286vw, 1269px);
+    height: min(39.6825396825vw, 600px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-hero .survice-bg {
+    width: 100%;
+    height: 69.3333333333vw;
+  }
+}
+.service .service-hero {
+  /* パンくず */
+}
+.service .service-hero .breadcrumb {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 12px;
-  font-size: 14px;
   position: relative;
   z-index: 10;
 }
-
-.breadcrumb a,
-.breadcrumb span {
+@media screen and (min-width: 768px) {
+  .service .service-hero .breadcrumb {
+    padding: min(1.3227513228vw, 20px) min(2.6455026455vw, 40px) 0;
+    gap: min(0.7936507937vw, 12px);
+    font-size: min(0.9259259259vw, 14px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-hero .breadcrumb {
+    padding: 4.8vw 5.3333333333vw 0;
+    gap: 3.2vw;
+    font-size: 3.2vw;
+  }
+}
+.service .service-hero .breadcrumb a,
+.service .service-hero .breadcrumb span {
   color: #3d3d3d;
   font-weight: 500;
-  text-decoration: none;
 }
-
-.breadcrumb-home {
-  border-bottom: 1px solid #3d3d3d;
+@media screen and (min-width: 768px) {
+  .service .service-hero .breadcrumb-home {
+    border-bottom: min(0.0661375661vw, 1px) solid #3d3d3d;
+  }
 }
-
-/* 上のエリア全体 */
-.service-hero {
-  position: relative;
-  margin-top: -60px;
+@media screen and (max-width: 767px) {
+  .service .service-hero .breadcrumb-home {
+    border-bottom: 0.2666666667vw solid #3d3d3d;
+  }
 }
-
-/* 薄い背景画像 */
-.service-hero-bg {
-  width: calc(100% - 214px); /* 左に余白を残して右に寄せる */
-  margin-left: auto;
-}
-
-.service-hero-bg img {
-  width: 100%;
-  display: block;
-}
-
-/* タイトル */
-.service-hero-title {
-  position: absolute;
-  left: 85px;
-  top: 45%;
-  -webkit-transform: translateY(-42%);
-          transform: translateY(-42%);
+.service .service-hero-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 40px;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   z-index: 2;
+  position: relative;
 }
+@media screen and (min-width: 768px) {
+  .service .service-hero-title {
+    margin-top: min(10.582010582vw, 160px);
+    padding: 0 min(5.291005291vw, 80px);
+    gap: min(1.9841269841vw, 30px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-hero-title {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 13.3333333333vw;
+  }
+}
+.service .service-hero-title h1 {
+  /** 
 
-.service-hero-title h1 {
+  Bebasというフォントも使われているようなので、そちらを使う場合は
+  @include Bebas;
+  を指定してください
+
+  **/
   font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-size: 100px;
+  font-optical-sizing: auto;
+  font-style: normal;
   line-height: 1.1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: #7b7b7b;
-  margin: 0;
 }
-
-.service-hero-title p {
-  font-size: 24px;
+@media screen and (min-width: 768px) {
+  .service .service-hero-title h1 {
+    font-size: min(6.6137566138vw, 100px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-hero-title h1 {
+    font-size: 16vw;
+  }
+}
+.service .service-hero-title p {
   font-weight: 700;
-  color: #222;
-  margin-top: 36px;
+  letter-spacing: 0.08em;
 }
-
-/* 下のカラー画像 */
-.service-photo {
-  max-width: 1800px;
+@media screen and (min-width: 768px) {
+  .service .service-hero-title p {
+    font-size: min(1.5873015873vw, 24px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-hero-title p {
+    font-size: 4.2666666667vw;
+  }
+}
+.service {
+  /* 下の画像 */
+}
+.service .service-photo {
   width: 100%;
-  margin: -330px auto 0;
   position: relative;
   z-index: 3;
 }
-
-.service-photo img {
+@media screen and (min-width: 768px) {
+  .service .service-photo {
+    padding: 0 min(2.6455026455vw, 40px);
+    height: min(30.9523809524vw, 468px);
+    margin-top: min(1.3227513228vw, 20px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-photo {
+    padding: 0 5.3333333333vw;
+    height: 48vw;
+    margin-top: 10.6666666667vw;
+  }
+}
+.service .service-photo img {
   width: 100%;
+  height: 100%;
   display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-
-.service-intro {
-  padding: 100px 0 120px;
+.service {
+  /* テキストエリア */
 }
-
-.service-intro-inner {
-  max-width: 1100px;
+@media screen and (min-width: 768px) {
+  .service .service-intro {
+    padding: min(7.9365079365vw, 120px) 0 min(3.9682539683vw, 60px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-intro {
+    padding: 16vw 5.3333333333vw 0;
+  }
+}
+.service .service-intro-inner {
   margin: 0 auto;
-  padding: 0 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  gap: 39px;
 }
-
-.service-intro-title {
-  width: 38%;
+@media screen and (min-width: 768px) {
+  .service .service-intro-inner {
+    max-width: min(66.1375661376vw, 1000px);
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
-
-.service-intro-title h2 {
-  font-size: 36px;
+@media screen and (max-width: 767px) {
+  .service .service-intro-inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 6.4vw;
+  }
+}
+.service .service-intro-title h2 {
   font-weight: 700;
-  line-height: 1.8;
-  color: #222;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
 }
-
-.service-intro-text {
-  width: 60%;
+@media screen and (min-width: 768px) {
+  .service .service-intro-title h2 {
+    font-size: min(2.380952381vw, 36px);
+  }
 }
-
-.service-intro-text p {
+@media screen and (max-width: 767px) {
+  .service .service-intro-title h2 {
+    text-align: center;
+    font-size: 4vw;
+  }
+}
+.service .service-intro-text p {
+  line-height: 2.3;
+  letter-spacing: 0.08em;
+}
+@media screen and (min-width: 768px) {
+  .service .service-intro-text p {
+    font-size: min(1.3227513228vw, 20px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-intro-text p {
+    font-size: 3.7333333333vw;
+  }
+}
+.service {
+  /* 事業セクション */
+}
+.service .service-works {
+  position: relative;
+  margin-bottom: 120px;
+  background-image: url("../img/SERVICE-3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 768px) {
+  .service .service-works {
+    padding: min(7.9365079365vw, 120px) 0 min(6.6137566138vw, 100px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-works {
+    background-position: top;
+    padding: 26.6666666667vw 5.3333333333vw 21.3333333333vw;
+  }
+}
+.service .service-works-inner {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .service .service-works-inner {
+    max-width: min(66.1375661376vw, 1000px);
+  }
+}
+.service .service-works-text {
   font-size: 20px;
   font-weight: 500;
-  line-height: 2.3;
+  line-height: 2.2;
+  letter-spacing: 0.07em;
   color: #222;
+}
+@media screen and (min-width: 768px) {
+  .service .service-works-text {
+    font-size: min(1.1904761905vw, 18px);
+    margin-top: min(3.9682539683vw, 60px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-works-text {
+    font-size: 3.7333333333vw;
+    margin-top: 10.6666666667vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .service .service-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: min(94.708994709vw, 1432px);
+    margin: 0 auto;
+    padding-bottom: min(7.9365079365vw, 120px);
+    gap: min(2.6455026455vw, 40px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service .service-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 89.8666666667vw;
+    margin: 0 auto;
+    padding-bottom: 21.3333333333vw;
+    gap: 10.6666666667vw;
+  }
 }
 
 /* -----------------------
   C_example
 ----------------------- */
+/* -----------------------
+  C_service-card
+----------------------- */
+@media screen and (min-width: 768px) {
+  .service-card {
+    width: min(46.0317460317vw, 696px);
+  }
+}
+.service-card-line {
+  position: relative;
+  width: 100%;
+  border-radius: 999px;
+  background: #b1b1b1;
+}
+@media screen and (min-width: 768px) {
+  .service-card-line {
+    height: min(0.1322751323vw, 2px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-card-line {
+    height: 0.5333333333vw;
+  }
+}
+.service-card-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#E87C38), to(#BC2929));
+  background: linear-gradient(180deg, #E87C38 0%, #BC2929 100%);
+  z-index: 1;
+}
+@media screen and (min-width: 768px) {
+  .service-card-line::before {
+    width: min(4.5634920635vw, 69px);
+    height: min(0.1322751323vw, 2px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-card-line::before {
+    width: 18.4vw;
+    height: 0.5333333333vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .service-card-content {
+    padding-top: min(1.3227513228vw, 20px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-card-content {
+    padding-top: 5.3333333333vw;
+  }
+}
+.service-card-content .top-TX {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media screen and (min-width: 768px) {
+  .service-card-content .top-TX {
+    gap: min(1.3227513228vw, 20px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-card-content .top-TX {
+    gap: 4.8vw;
+  }
+}
+.service-card-content .top-TX .number {
+  font-family: "Bebas Neue", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background: -webkit-gradient(linear, left top, left bottom, from(#E87C38), to(#BC2929));
+  background: linear-gradient(180deg, #E87C38 0%, #BC2929 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media screen and (min-width: 768px) {
+  .service-card-content .top-TX .number {
+    font-size: min(3.0423280423vw, 46px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-card-content .top-TX .number {
+    font-size: 9.6vw;
+  }
+}
+.service-card-content .top-TX .title {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+@media screen and (min-width: 768px) {
+  .service-card-content .top-TX .title {
+    font-size: min(1.9841269841vw, 30px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-card-content .top-TX .title {
+    font-size: 6.4vw;
+  }
+}
+.service-card-content .category {
+  letter-spacing: 0.08em;
+}
+@media screen and (min-width: 768px) {
+  .service-card-content .category {
+    margin-top: min(1.3227513228vw, 20px);
+    font-size: min(1.0582010582vw, 16px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-card-content .category {
+    margin-top: 4vw;
+    font-size: 3.2vw;
+  }
+}
+.service-card-content .img-wrap {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .service-card-content .img-wrap {
+    margin-top: min(1.3227513228vw, 20px);
+    height: min(19.8412698413vw, 300px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-card-content .img-wrap {
+    margin-top: 4vw;
+    height: 53.3333333333vw;
+  }
+}
+.service-card-content .img-wrap img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 /* -----------------------
   front
 ----------------------- */
