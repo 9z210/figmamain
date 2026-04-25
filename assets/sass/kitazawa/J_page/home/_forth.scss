@@ -5,45 +5,15 @@
   SERVICE
 ----------------------- */
 
-// これはreset.scssにすでに記載してあるので書かなくて大丈夫です！
-// * {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-// }
 
-// bodyに対して何かを指定してしまうと、他のページにもCSSが適用されてしまうので、bodyには指定しないようにします。
-// 自分が書いたものにのみCSSが反映されるように
-/**
-
-    mainタグにかならず<main class="service"></div>などクラス名をつけ、
-    sassでhtmlタグに直接スタイルをつける時は
-    .service{
-      li{
-
-      }
-    }
-
-**/
-
-//このルールがあるので以下のようにします。
-
-// body {
-//   background: #f2f2f2;
-// }
 
 .service {
   background: #f2f2f2;
 
-  // .main1-inner {
-  //   width: 100%;
-  // }
 
-  /* ヒーロー */
   .service-hero {
     position: relative;
-    // margin-top: s(-40) pmin(-60);
-    // padding: pmin(20);
+
 
     @include pc {
       margin-top: pmin(-40) pmin(-60);
@@ -53,23 +23,13 @@
       margin-top: s(-40) s(-60);
     }
 
-    // &-bg {
-    //   width: calc(100% - s(40));
-    //   margin-left: auto;
 
-    //   img {
-    //     width: 100%;
-    //     display: block;
-    //   }
-    // }
-
-    // SERVICE-1.png の背景画像をここで設定します
     .survice-bg {
-      @include imgCover("SERVICE-1.png");
-      position: absolute; //浮かせて配置
+      @include imgCover("header.png");
+      position: absolute;
       top: 0;
       right: 0;
-      z-index: 0; //他の要素の後ろに配置
+      z-index: 0;
 
       @include pc {
         width: pmin(1269);
@@ -84,11 +44,10 @@
 
     /* パンくず */
     .breadcrumb {
-      // padding: 20px 40px 0;
+
       display: flex;
       align-items: center;
-      // gap: 12px;
-      // font-size: 14px;
+
       position: relative;
       z-index: 10;
 
@@ -108,12 +67,12 @@
       span {
         color: #3d3d3d;
         font-weight: 500;
-        // text-decoration: none;  すでにreset.scssで消してある
+
       }
 
       &-home {
 
-        // border-bottom: 1px solid #3d3d3d;
+
         @include pc {
           border-bottom: pmin(1) solid #3d3d3d;
         }
@@ -125,18 +84,13 @@
     }
 
     &-title {
-      // position: absolute;
-      // left: s(20) pmin(85);
-      // top: 50%;
-      // transform: translateY(-50%);
-      display: flex;
-      // align-items: center;
-      align-items: baseline; //フレックスボックス内のアイテムを下揃えに配置
-      // gap: s(16) pmin(40);
-      z-index: 2;
-      position: relative; //z-indexを聞かせるために追加
 
-      // 配置用
+      display: flex;
+      align-items: baseline;
+      z-index: 2;
+      position: relative;
+
+
       @include pc {
         margin-top: pmin(160);
         padding: 0 pmin(80);
@@ -144,29 +98,20 @@
       }
 
       @include sp {
-        flex-direction: column; //スマホレイアウトでは縦並び
-        align-items: center; //フレックスボックス内のアイテムを左右中央に配置
+        flex-direction: column;
+        align-items: center;
         margin-top: s(50);
       }
 
       h1 {
-        //READ ME 124行目付近 フォントついて参照
-        /** 
 
-        Bebasというフォントも使われているようなので、そちらを使う場合は
         @include Bebas;
-        を指定してください
 
-        **/
-        @include Bebas;
-        // font-family: "Bebas Neue", sans-serif;
-        // font-weight: 400;
-        // font-size: s(48) pmin(100);
         line-height: 1.1;
 
-        // 文字間もう少し開けたい
+
         letter-spacing: 0.08em;
-        // letter-spacing: 0.06em;
+
         color: #7b7b7b;
 
         @include pc {
@@ -179,13 +124,9 @@
       }
 
       p {
-        // font-size: s(16) pmin(24);
+
         font-weight: 700;
         letter-spacing: 0.08em;
-
-        // メインの文字色は全体に対して設定してあるので不要
-        // color: #222;
-        // margin-top: s(8) pmin(36);
 
         @include pc {
           font-size: pmin(24);
@@ -198,12 +139,9 @@
     }
   }
 
-  /* 下の画像 */
+
   .service-photo {
-    // max-width: 1800px;
-    // height: pmin(468);
     width: 100%;
-    // margin: s(-120) pmin(-330) auto 0;
     position: relative;
     z-index: 3;
 
@@ -223,13 +161,13 @@
       width: 100%;
       height: 100%;
       display: block;
-      object-fit: cover; //画像が伸びないように追加
+      object-fit: cover;
     }
   }
 
   /* テキストエリア */
   .service-intro {
-    // padding: s(60) pmin(100) 0 s(80) pmin(120);
+
 
     @include pc {
       padding: pmin(120) 0 pmin(60);
@@ -240,11 +178,11 @@
     }
 
     &-inner {
-      // max-width: 1100px;
+
       margin: 0 auto;
-      // padding: 0 s(20) pmin(40);
+
       display: flex;
-      // gap: s(24) pmin(39);
+
 
       @include pc {
         max-width: pmin(1000);
@@ -252,16 +190,16 @@
       }
 
       @include sp {
-        flex-direction: column; //スマホでは縦並び
+        flex-direction: column;
         gap: s(24);
       }
     }
 
     &-title {
-      // width: s(100%) pmin(38%);
+
 
       h2 {
-        // font-size: s(24) pmin(36);
+
         font-weight: 700;
         line-height: 1.5;
         letter-spacing: 0.08em;
@@ -278,10 +216,10 @@
     }
 
     &-text {
-      // width: s(100%) pmin(60%);
+
 
       p {
-        // font-size: s(14) pmin(20);
+
         line-height: 2.3;
         letter-spacing: 0.08em;
 
@@ -296,13 +234,11 @@
     }
   }
 
-  /* 事業セクション */
+
   .service-works {
     position: relative;
     margin-bottom: 120px;
-    // margin-top: 120px;
-    // padding: 120px 0 0;
-    // overflow: hidden;
+
 
     @include imgCover("SERVICE-3.png");
 
@@ -315,50 +251,22 @@
       padding: s(100) s(20) s(80);
     }
 
-    // &-bg {
-    //   position: absolute;
-    //   inset: 0;
-    //   z-index: 1;
 
-    //   img {
-    //     width: 100%;
-    //     height: 100%;
-    //     object-fit: cover;
-    //     display: block;
-    //     opacity: 0.18;
-    //   }
-    // }
 
     &-inner {
       position: relative;
       z-index: 2;
-      // max-width: 980px;
+
       margin: 0 auto;
-      // padding: 90px 40px 100px 40px;
+
 
       @include pc {
         max-width: pmin(1000);
       }
     }
 
-    // &-label {
-    //   font-size: 24px;
-    //   font-weight: 700;
-    //   line-height: 1.5;
-    //   color: #ef3b2d;
-    //   margin-bottom: 20px;
-    // }
-
-    // &-title {
-    //   font-size: 60px;
-    //   font-weight: 700;
-    //   line-height: 1.3;
-    //   color: #222;
-    //   margin-bottom: 52px;
-    // }
 
     &-text {
-      // max-width: 860px;
       font-size: 20px;
       font-weight: 500;
       line-height: 2.2;
@@ -378,6 +286,7 @@
   }
 
   .service-list {
+
     @include pc {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -391,10 +300,49 @@
       display: grid;
       grid-template-columns: 1fr;
       max-width: s(337);
-      margin: 0 auto ;
+      margin: 0 auto;
       padding-bottom: s(80);
       gap: s(40);
     }
   }
 
+  .service-card {
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    &:hover img {
+      transform: scale(1.06);
+    }
+
+    .img-wrap {
+      overflow: hidden;
+    }
+
+    img {
+      transition: transform 0.45s ease;
+    }
+  }
+}
+
+.js-fade {
+  opacity: 0;
+  transform: translateY(36px) scale(0.98);
+  filter: blur(6px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-fade.is-show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }

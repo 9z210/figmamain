@@ -280,20 +280,8 @@ h6 {
 /* -----------------------
   SERVICE
 ----------------------- */
-/**
-
-    mainタグにかならず<main class="service"></div>などクラス名をつけ、
-    sassでhtmlタグに直接スタイルをつける時は
-    .service{
-      li{
-
-      }
-    }
-
-**/
 .service {
   background: #f2f2f2;
-  /* ヒーロー */
 }
 .service .service-hero {
   position: relative;
@@ -309,7 +297,7 @@ h6 {
   }
 }
 .service .service-hero .survice-bg {
-  background-image: url("../img/SERVICE-1.png");
+  background-image: url("../img/header.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -402,13 +390,6 @@ h6 {
   }
 }
 .service .service-hero-title h1 {
-  /** 
-
-  Bebasというフォントも使われているようなので、そちらを使う場合は
-  @include Bebas;
-  を指定してください
-
-  **/
   font-family: "Bebas Neue", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -439,9 +420,6 @@ h6 {
   .service .service-hero-title p {
     font-size: 4.2666666667vw;
   }
-}
-.service {
-  /* 下の画像 */
 }
 .service .service-photo {
   width: 100%;
@@ -535,9 +513,6 @@ h6 {
     font-size: 3.7333333333vw;
   }
 }
-.service {
-  /* 事業セクション */
-}
 .service .service-works {
   position: relative;
   margin-bottom: 120px;
@@ -606,28 +581,61 @@ h6 {
     gap: 10.6666666667vw;
   }
 }
+.service .service-card {
+  -webkit-transition: -webkit-transform 0.35s ease, -webkit-box-shadow 0.35s ease;
+  transition: -webkit-transform 0.35s ease, -webkit-box-shadow 0.35s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, -webkit-transform 0.35s ease, -webkit-box-shadow 0.35s ease;
+  cursor: pointer;
+}
+.service .service-card:hover {
+  -webkit-transform: translateY(-6px);
+          transform: translateY(-6px);
+  -webkit-box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+}
+.service .service-card:hover img {
+  -webkit-transform: scale(1.06);
+          transform: scale(1.06);
+}
+.service .service-card .img-wrap {
+  overflow: hidden;
+}
+.service .service-card img {
+  -webkit-transition: -webkit-transform 0.45s ease;
+  transition: -webkit-transform 0.45s ease;
+  transition: transform 0.45s ease;
+  transition: transform 0.45s ease, -webkit-transform 0.45s ease;
+}
+
+.js-fade {
+  opacity: 0;
+  -webkit-transform: translateY(36px) scale(0.98);
+          transform: translateY(36px) scale(0.98);
+  -webkit-filter: blur(6px);
+          filter: blur(6px);
+  -webkit-transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), -webkit-filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), -webkit-filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), -webkit-filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-fade.is-show {
+  opacity: 1;
+  -webkit-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
+  -webkit-filter: blur(0);
+          filter: blur(0);
+}
 
 /* -----------------------
   SERVICE
 ----------------------- */
-/**
-
-    mainタグにかならず<main class="service"></div>などクラス名をつけ、
-    sassでhtmlタグに直接スタイルをつける時は
-    .service{
-      li{
-
-      }
-    }
-
-**/
 .policy {
   background: #f2f2f2;
-  /* ヒーロー */
 }
 .policy .policy-hero {
   position: relative;
-  /* 背景画像 */
 }
 .policy .policy-hero .policy-bg {
   background-image: url("../img/header.png");
@@ -650,9 +658,6 @@ h6 {
     width: 100%;
     height: 69.3333333333vw;
   }
-}
-.policy .policy-hero {
-  /* パンくず */
 }
 .policy .policy-hero .breadcrumb {
   display: -webkit-box;
@@ -754,9 +759,6 @@ h6 {
     font-size: 4.2666666667vw;
   }
 }
-.policy {
-  /* 下の画像 */
-}
 .policy .policy-photo {
   width: 100%;
   position: relative;
@@ -783,18 +785,18 @@ h6 {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.policy {
-  /* テキストエリア */
-}
 .policy .policy-intro {
   background-image: url("../img/policymain1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-position: right 50px center;
 }
 @media screen and (min-width: 768px) {
   .policy .policy-intro {
     padding: min(7.9365079365vw, 120px) 0 min(7.9365079365vw, 120px);
+    background-position: right center;
+    background-repeat: no-repeat;
   }
 }
 @media screen and (max-width: 767px) {
@@ -914,6 +916,7 @@ h6 {
   background: #F1DCDE;
   padding: 20px;
   border-bottom: 1px solid #b6b6b6;
+  cursor: pointer;
 }
 .policy .policy-intro-form p {
   font-size: 18px;

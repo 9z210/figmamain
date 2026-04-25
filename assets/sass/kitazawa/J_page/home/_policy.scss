@@ -5,43 +5,16 @@
   SERVICE
 ----------------------- */
 
-// これはreset.scssにすでに記載してあるので書かなくて大丈夫です！
-// * {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-// }
-
-// bodyに対して何かを指定してしまうと、他のページにもCSSが適用されてしまうので、bodyには指定しないようにします。
-// 自分が書いたものにのみCSSが反映されるように
-/**
-
-    mainタグにかならず<main class="service"></div>などクラス名をつけ、
-    sassでhtmlタグに直接スタイルをつける時は
-    .service{
-      li{
-
-      }
-    }
-
-**/
-
-//このルールがあるので以下のようにします。
-
-// body {
-//   background: #f2f2f2;
-// }
-
 .policy {
   background: #f2f2f2;
 
-  /* ヒーロー */
+
   .policy-hero {
     position: relative;
 
 
 
-    /* 背景画像 */
+
     .policy-bg {
       @include imgCover("header.png");
       position: absolute;
@@ -60,7 +33,7 @@
       }
     }
 
-    /* パンくず */
+
     .breadcrumb {
       display: flex;
       align-items: center;
@@ -144,7 +117,7 @@
     }
   }
 
-  /* 下の画像 */
+
   .policy-photo {
     width: 100%;
     position: relative;
@@ -170,12 +143,15 @@
     }
   }
 
-  /* テキストエリア */
+
   .policy-intro {
     @include imgCover("policymain1.png");
+    background-position: right 50px center;
 
     @include pc {
       padding: pmin(120) 0 pmin(120);
+      background-position: right center;
+      background-repeat: no-repeat;
     }
 
     @include sp {
@@ -284,7 +260,7 @@
 
         @include sp {
           font-size: s(14);
-          
+
         }
       }
     }
@@ -294,6 +270,9 @@
       background: #F1DCDE;
       padding: 20px;
       border-bottom: 1px solid #b6b6b6;
+      cursor: pointer;
+
+
 
       p {
         font-size: 18px;
